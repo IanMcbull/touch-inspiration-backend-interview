@@ -13,12 +13,14 @@
 ## Running the App locally
 Clone or donwload the project files and run npm or pnpm install in your terminal
 ```
-npm i 
+npm i
+npm start:dev 
 ```
 or 
 
 ```
 pnpm i
+pnpm start:dev
 ```
 
 This will install the project dependancies and create a node_modules folder in the root directory
