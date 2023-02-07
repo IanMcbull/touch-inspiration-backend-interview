@@ -6,6 +6,26 @@
 ## NextJS Plugins
 - [Mongoose/MongoDB](https://docs.nestjs.com/recipes/mongodb)
 
+## Package manager that I used
+
+- [pnpm](https://pnpm.io/motivation)
+
+## Running the App locally
+Clone or donwload the project files and run npm or pnpm install in your terminal
+```
+npm i 
+```
+or 
+
+```
+pnpm i
+```
+
+This will install the project dependancies and create a node_modules folder in the root directory
+
+Once the packages have been donwloaded run `npm start:dev` or `pnpm start:dev` to run the development server
+
+
 
 ## Endpoints
 
@@ -44,5 +64,137 @@ Response
     }
 ]
 
+```
+
+## Creating User
+
+```curl
+POST http://localhost:3000/users
+
+{
+    "username":"Jane Doe"
+}
+
+```
+## Response
+
+```json
+{
+    "userID": "e69aa2fb-f19c-4c22-8452-93c9d538088b",
+    "username": "Jane Doe",
+    "wallets": [],
+    "totalWalletBalances": 0,
+    "_id": "63e225d97c39111e53497d73",
+    "__v": 0
+}
+```
+
+A username needs to be provided for the request to be successfull. You can also provide the wallets array which is an array of wallets. I've provided some screenshots below with sample examples of how to create users.
+
+```curl
+POST http://localhost:3000/users
+
+{
+ "username":"Jack Doe",
+ "wallets":[
+     {"walletname":"Jacks Wallet","balance":900},
+     {"walletname":"Jacks Wallet Two","balance":1900}
+ ]
+}
+
+```
+
+## Response
+
+```json
+{
+    "userID": "b8a5cb2c-bcb8-4dfb-8dab-e00e91c3ff3c",
+    "username": "Jack Doe",
+    "wallets": [
+        {
+            "walletname": "Jacks Wallet",
+            "balance": 900
+        },
+        {
+            "walletname": "Jacks Wallet Two",
+            "balance": 1900
+        }
+    ],
+    "totalWalletBalances": 2800,
+    "_id": "63e2264c7c39111e53497d75",
+    "__v": 0
+}
+
+```
+
+You can also add expenses and income arrays to the wallets array.
+
+
+```curl
+POST http://localhost:3000/users
+
+{
+    "username": "Jack Harrington",
+    "wallets": [
+        {
+            "walletname": "Jacks Wallet",
+            "balance": 900,
+            "expenses": [
+                {"expense_name":"Bought some bad crypto","amount":89},
+                {"expense_name":"Bought some more","amount":189}
+            ],
+            "income":[
+                {"income_name":"Made some money on a crypto deal","amount":89},
+                {"income_name":"Made some money on a crypto deal","amount":89}
+            ]
+        },
+        {
+            "walletname": "Jacks Wallet Two",
+            "balance": 1900
+        }
+    ]
+}
+```
+
+## Response
+
+```json
+{
+    "userID": "51481ce6-3ca6-4977-ac62-a62b75c0d3f0",
+    "username": "Jack Harrington",
+    "wallets": [
+        {
+            "walletname": "Jacks Wallet",
+            "balance": 900,
+            "expenses": [
+                {
+                    "expense_name": "Bought some bad crypto",
+                    "amount": 89
+                },
+                {
+                    "expense_name": "Bought some more",
+                    "amount": 189
+                }
+            ],
+            "income": [
+                {
+                    "income_name": "Made some money on a crypto deal",
+                    "amount": 89
+                },
+                {
+                    "income_name": "Made some money on a crypto deal",
+                    "amount": 89
+                }
+            ]
+        },
+        {
+            "walletname": "Jacks Wallet Two",
+            "balance": 1900
+        }
+    ],
+    "totalWalletBalances": 2800,
+    "_id": "63e22b667c39111e53497d77",
+    "__v": 0
+}
 ```
 

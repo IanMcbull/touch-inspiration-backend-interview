@@ -13,19 +13,13 @@ export class UserController {
   }
   @Get(':userID/profile')
   async getUser(@Param('userID') userID: string): Promise<User> {
-    const userDetails = await this.userService.findOne({ userID });
-    const userWallets = userDetails.wallets;
-    const totalWalletBalances = userWallets
-      .map((wallet) => wallet.balance)
-      .reduce((curr, acc) => (curr += acc));
-    userDetails.totalWalletBalances = totalWalletBalances;
-    return userDetails;
+    return this.userService.findOne({ userID });
   }
 
   @Post()
   async create(@Body() createUserDto: CreateUserDto): Promise<User> {
     createUserDto.userID = uuidv4();
-    if (createUserDto.wallets.length > 0) {
+    if (createUserDto.wallets && createUserDto.wallets.length > 0) {
       const balances = createUserDto.wallets;
       createUserDto.totalWalletBalances = balances
         .map((b: any) => b.balance)
