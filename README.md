@@ -89,7 +89,7 @@ POST http://localhost:3000/users
 }
 ```
 
-A username needs to be provided for the request to be successfull. You can also provide the wallets array which is an array of wallets. I've provided some screenshots below with sample examples of how to create users.
+A username needs to be provided for the request to be successfull. You can also provide the wallets array which is an array of wallets.
 
 ```curl
 POST http://localhost:3000/users
