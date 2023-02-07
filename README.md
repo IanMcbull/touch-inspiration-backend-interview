@@ -321,3 +321,6 @@ This endpoint also takes in a userID as a query parameter
 
 
 I tried to implement as much as I possibly and tried to follow as many best practices as I could find online. This was my first time interacting with NestJS. 
+
+### N/B
+The database has one user. So you can make a `get` request without adding a new user to make sure the endpoint is working. I've also left the env file in the repo as it contains configuration for communicating with MongoDB. The configuration is however set to expire after one week for security purposes. 
