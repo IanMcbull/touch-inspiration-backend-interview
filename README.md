@@ -201,7 +201,7 @@ POST http://localhost:3000/users
 ```
 
 ## Creating a Wallet
-The second and third requirement was the user needs to be able to create a wallet: and add incomes and expenses to it.
+The second and third requirement was the user needs to be able to create a wallet and add incomes and expenses to it.
 
 ```curl
 PUT http://localhost:3000/users/857d4106-3d18-4e2c-b46f-0a00a2488c30/wallet/new
